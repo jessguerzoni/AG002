@@ -44,7 +44,7 @@ y = df["Channel"]
 
 # --- dividir em treino e teste ---
 X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.3, random_state=42, stratify=y
+    X, y, test_size=0.2, random_state=42, stratify=y
 )
 
 # --- 6 e 7: escolher o modelo, treinar e classificar o conjunto de teste ---
