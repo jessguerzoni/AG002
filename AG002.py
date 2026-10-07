@@ -5,15 +5,14 @@ from sklearn.metrics import classification_report
 
 
 #01 - 02
-#baixar dataet e fazer leitura dos dados
+#leitura dos dados
 
 df=pd.read_csv('Wholescale costumers.csv',delimiter=',')
 
 #03
 
-#Converter os valores para numeros inteiros
+#Conversao para valores numericos
 
-#convertendo os dados
 df = df.replace({"Channel": {"HoReCa": 0, "Retail": 1},
 "Region": {"Lisbon": 0, "Oporto": 1, "Other": 2},
 })
@@ -24,14 +23,13 @@ print(df[["Channel", "Region"]].dtypes)
 print(df["Channel"].value_counts())
 print(df["Region"].value_counts())
 
-#04 - Reordenar as colunas
+#04 - Reordenação das colunas
 
 new_order = ["Region", "Fresh", "Milk", "Grocery", "Frozen","Detergents_Paper", "Delicatessen", "Channel"]
 
 df = df.reindex(columns=new_order)
 print(list(df.columns)) 
 
-# --- passos anteriores (conversão e reordenação) ---
 df = pd.read_csv("Wholescale costumers.csv")
 df["Channel"] = df["Channel"].map({"HoReCa": 0, "Retail": 1}).astype("int64")
 df["Region"] = df["Region"].map({"Lisbon": 0, "Oporto": 1, "Other": 2}).astype("int64")
